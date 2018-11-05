@@ -1,0 +1,26 @@
+#nexus
+begin trees;
+tree Asterids6sequences =
+(((Cornus:0.033344,Grubbia:0.036720)HironoiaFossil:0.002779,Loasa:0.050486):0.007297,((((((((Actinidia:0.027475,Roridula:0.064030)SaurauiaFossil:0.008572,(Clethra:0.021295,Cyrilla:0.046044):0.003872):0.005097,((Camellia:0.021850,Schima:0.016938):0.010644,((Halesia:0.013596,Styrax:0.032164):0.019832,Symplocos:0.047587):0.001631):0.001024):0.000972,((Pentaphylax:0.025918,Ternstroemia:0.015396)EuryaFossil:0.007122,Sladenia:0.037020):0.002730):0.000212,((Barringtonia:0.055177,Diospyros:0.032376):0.002849,(Manilkara:0.034126,((Myrsine:0.031627,Primula:0.056810):0.024355,Theophrasta:0.056845):0.037045):0.002338):0.000843):0.000435,(Fouquieria:0.027071,Polemonium:0.081346):0.005239):0.007882,((Impatiens:0.083922,(Pelliciera:0.040265,Tetramerista:0.025141):0.012394):0.003428,Marcgravia:0.020516):0.048613):0.019181,((((((Brunia:0.053312,(Columellia:0.047898,Desfontainia:0.033550):0.029574):0.001410,((((((Acicarpha:0.011488,Boopis:0.015587):0.013311,Helianthus:0.045257):0.006027,Scaevola:0.093022):0.025051,Menyanthes:0.022324):0.006260,((Alseuosmia:0.041692,Phelline:0.021791):0.001769,Argophyllum:0.037024):0.002591):0.005052,(Pentaphragma:0.076646,(Roussea:0.059265,Stylidium:0.142503):0.003237):0.001489):0.020634):0.001803,((Eremosyne:0.128158,Escallonia:0.042197):0.006358,(Polyosma:0.041906,Tribeles:0.054876):0.000821):0.004491):0.000519,(((Paracryphia:0.019133,Quintinia:0.023970):0.002678,(((Diervilla:0.015704,((Dipsacus:0.035314,Valeriana:0.086088):0.007744,(Linnaea:0.013926,Morina:0.021660):0.000750):0.017155):0.006656,Lonicera:0.028906):0.020884,Viburnum:0.024812):0.006809):0.001038,((((Apium:0.067128,Pittosporum:0.039950):0.003543,Aralia:0.029296)AraliaFossil:0.006883,Griselinia:0.014517):0.002293,(Aralidium:0.009240,(Melanophylla:0.009026,Torricellia:0.014151):0.001714):0.014724):0.017736):0.000982):0.009105,(Cardiopteris:0.080762,((Helwingia:0.036317,Phyllonoma:0.060317):0.006752,Ilex:0.029581)IlexFossil:0.019998):0.005551):0.004191,((Apodytes:0.038237,(Aucuba:0.045675,Oncotheca:0.046818):0.002054):0.000261,((((Borago:0.113830,Vahlia:0.050253):0.002874,((Plocosperma:0.069702,(((((((((((Acanthus:0.065707,Avicennia:0.045134):0.013275,Schlegelia:0.013921):0.000932,(Sesamum:0.020531,Stilbe:0.026057):0.001350):0.000321,(Jacaranda:0.011320,(Lamium:0.071306,Verbena:0.046395):0.003311):0.001207):0.001310,Proboscidea:0.017023):0.000401,(((Cyclocheilon:0.052841,Lindenbergia:0.041852):0.015915,Paulownia:0.015526):0.001561,Phryma:0.038506):0.003228):0.003303,((Androya:0.014876,Myoporum:0.020026):0.011113,(Buddleja:0.012592,(Scrophularia:0.024050,Selago:0.058011):0.002857):0.010787):0.004125):0.001720,(Antirrhinum:0.041777,(Globularia:0.040728,Plantago:0.105433):0.011348):0.010454):0.002046,(Peltanthera:0.014593,Streptocarpus:0.076524):0.004741):0.015247,(Polypremum:0.034510,Tetrachondra:0.027710):0.028594):0.003733,Olea:0.026828):0.009032):0.014183,((((Grevea:0.021931,Montinia:0.026439):0.013159,Kaliphora:0.039820):0.046619,Sphenoclea:0.075440):0.007293,(Ipomoea:0.111866,Nicotiana:0.060155):0.012334):0.005862):0.001160):0.002214,(((Alstonia:0.034547,Gentiana:0.126012):0.007100,(Gelsemium:0.039903,Logania:0.061122):0.002067):0.011619,Luculia:0.042946):0.030885):0.019158,(Cassinopsis:0.019714,(Icacina:0.017279,Pyrenacantha:0.067494):0.052918):0.002524)IcacinicaryaFossil:0.000806):0.006868):0.008989):0.003421)Asterids;
+end;
+
+begin r8s;
+blformat nsites=9914 lengths=persite;
+collapse;
+fixage taxon=Asterids age=128;
+constrain taxon=HironoiaFossil minage=88;
+constrain taxon=SaurauiaFossil minage=89;
+constrain taxon=EuryaFossil minage=86;
+constrain taxon=IcacinicaryaFossil minage=89;
+constrain taxon=IlexFossil minage=70;
+constrain taxon=AraliaFossil minage=70;
+set seed=3 num_time_guesses=3 num_restarts=3 maxiter=3000 verbose=0 smoothing=3;
+divtime method=PL algorithm=TN;
+describe plot=phylogram;
+describe plot=chronogram;
+describe plot=tree_description;
+describe plot=chrono_description;
+describe plot=phylo_description;
+describe plot=rato_description;
+showage;
+end;
